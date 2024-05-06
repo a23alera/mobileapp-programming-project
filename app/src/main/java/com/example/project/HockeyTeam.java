@@ -2,7 +2,6 @@ package com.example.project;
 
 public class HockeyTeam {
     private String id;
-    private String login;
     private String name;
     private String location;
     private int size;
@@ -11,9 +10,8 @@ public class HockeyTeam {
     private String auxData;
     private String company;
 
-    public HockeyTeam(String id, String login, String name, String location, int size, int cost, String category, String auxData, String company) {
+    public HockeyTeam(String id, String name, String location, int size, int cost, String category, String auxData) {
         this.id = id;
-        this.login = login;
         this.name = name;
         this.location = location;
         this.size = size;
@@ -23,13 +21,8 @@ public class HockeyTeam {
         this.company = company;
     }
 
-    // Getter-metoder
     public String getId() {
         return id;
-    }
-
-    public String getLogin() {
-        return login;
     }
 
     public String getName() {
