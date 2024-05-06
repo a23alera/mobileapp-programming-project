@@ -29,7 +29,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Alex HL hockey lag"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:gravity="center"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/appBarLayout"
