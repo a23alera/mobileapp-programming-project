@@ -1,6 +1,7 @@
 package com.example.project;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private List<HockeyTeam> teams;
     private LayoutInflater layoutInflater;
-    private OnClickListener onClickListener;
+    private Context context;
 
-    public Adapter(Context context, List<HockeyTeam> teams, OnClickListener onClickListener) {
+    public Adapter(Context context, List<HockeyTeam> teams) {
         this.layoutInflater = LayoutInflater.from(context);
         this.teams = teams;
-        this.onClickListener = onClickListener;
+        this.context = context;
     }
 
     @Override
@@ -29,12 +30,19 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        HockeyTeam team = teams.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        final HockeyTeam team = teams.get(position);
         holder.tvName.setText(team.getName());
-        holder.tvLocation.setText("Plats: " + team.getLocation());
-        holder.tvSize.setText("Storlek: " + team.getSize());
-        holder.tvCost.setText("Kostnad: " + String.format("%,d SEK", team.getCost()));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, TeamActivity.class);
+                intent.putExtra("Name", team.getName());
+                intent.putExtra("Location", team.getLocation());
+                intent.putExtra("Cost", team.getCost());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -42,30 +50,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return teams.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tvName, tvLocation, tvSize, tvCost;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvName;
 
         ViewHolder(View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
             tvName = itemView.findViewById(R.id.tvName);
-            tvLocation = itemView.findViewById(R.id.tvLocation);
-            tvSize = itemView.findViewById(R.id.tvSize);
-            tvCost = itemView.findViewById(R.id.tvCost);
         }
-
-        @Override
-        public void onClick(View view) {
-            if (onClickListener != null) {
-                int position = getAdapterPosition();
-                if (position != RecyclerView.NO_POSITION) {
-                    onClickListener.onClick(teams.get(position));
-                }
-            }
-        }
-    }
-
-    public interface OnClickListener {
-        void onClick(HockeyTeam team);
     }
 }
