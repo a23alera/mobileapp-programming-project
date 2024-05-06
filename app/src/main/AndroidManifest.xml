@@ -23,6 +23,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".TeamActivity" />
+        <activity
+            android:name=".AboutActivity"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:exported="false">
+        </activity>
 
     </application>
 
