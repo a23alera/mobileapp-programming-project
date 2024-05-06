@@ -31,10 +31,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         HockeyTeam team = teams.get(position);
-        holder.tvName.setText(team.toString());
-        holder.tvLocation.setText("Plats: " + team.toString());
-        holder.tvSize.setText("Storlek: " + team.toString());
-        holder.tvCost.setText("Kostnad: " + String.format("%,d SEK", team.toString()));
+        holder.tvName.setText(team.getName());
+        holder.tvLocation.setText("Plats: " + team.getLocation());
+        holder.tvSize.setText("Storlek: " + team.getSize());
+        holder.tvCost.setText("Kostnad: " + String.format("%,d SEK", team.getCost()));
     }
 
     @Override
