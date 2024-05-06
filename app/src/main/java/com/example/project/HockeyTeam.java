@@ -11,7 +11,6 @@ public class HockeyTeam {
     private String auxData;
     private String company;
 
-    // Uppdaterad konstruktor
     public HockeyTeam(String id, String login, String name, String location, int size, int cost, String category, String auxData, String company) {
         this.id = id;
         this.login = login;

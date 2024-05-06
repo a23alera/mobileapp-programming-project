@@ -47,12 +47,12 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String id = jsonObject.getString("ID");
                 String name = jsonObject.getString("name");
-                String type = jsonObject.getString("type"); // Lägg till type i din HockeyTeam konstruktor om du behöver den
+                String type = jsonObject.getString("type");
                 String location = jsonObject.getString("location");
-                int size = jsonObject.getInt("size"); // Verkar alltid vara 0 enligt din JSON
+                int size = jsonObject.getInt("size");
                 int cost = jsonObject.getInt("cost");
-                String auxData = jsonObject.getString("auxdata"); // Kontrollera stavningen och fältets namn
-                String company = jsonObject.optString("company", ""); // Använd optString för att hantera nullsäkert
+                String auxData = jsonObject.getString("auxdata");
+                String company = jsonObject.optString("company", "");
 
                 HockeyTeam team = new HockeyTeam(id, name, type, location, size, cost, "", auxData, company);
                 hockeyTeams.add(team);
