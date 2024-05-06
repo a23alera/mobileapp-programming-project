@@ -1,7 +1,10 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,7 +30,17 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new Adapter(this, hockeyTeams);
         recyclerView.setAdapter(adapter);
+
         getJson();
+
+        Button btnAbout = findViewById(R.id.btnAbout);
+        btnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void getJson() {
@@ -57,11 +70,11 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 HockeyTeam team = new HockeyTeam(id, name, location, size, cost, auxData, company);
                 hockeyTeams.add(team);
             }
+            return hockeyTeams;
         } catch (JSONException e) {
             Toast.makeText(this, "Error parsing JSON", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
             return new ArrayList<>();
         }
-        return hockeyTeams;
     }
 }
