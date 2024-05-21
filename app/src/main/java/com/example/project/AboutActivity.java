@@ -11,6 +11,6 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.aboutlayout);
 
         TextView textView = findViewById(R.id.about_text_view);
-        textView.setText("Denna app är gjord för sånna som är intresserade inom hockey och Alex hockey league. I appen kan man välja ett av dom fem hockey lagen och få ut detaljer om det som hur mycket det är värt och deras hemma stad");
+        textView.setText("Denna app är skapad för alla som är intresserade av hockey och Alex Hockey League. Appen riktar sig till alla åldersgrupper. I appen kan användare välja ett av de fem hockeylagen och få detaljerad information om laget, inklusive dess värde och hemstad.");
     }
 }
