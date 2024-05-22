@@ -67,7 +67,7 @@ I koden så i onCreate så kopplas about till en knapp i main.
 Detta project gick ut på att skapa en app där man ska hämta json data från en URL där man ska hämta utvald fakta om något man själv har kommit på. Det som skapades i URL var olika lag och fakta om lagen.
 Ett problem som uppstod vid utvecklningen av appen var att det var problem med att lyckas läsa ut datan från URL, detta tog en stod att lösa men efter flera olika försök och kontroll med logcat och hjälp av Log.d för att veta om datan kom fram så löstest problmet.
 Problmet var med användningen av tostring i HockeyTeam klassen och även hur URL las in. URL problemet löstest med att lägga in min login i URL. "login=a23alera"
-Några olika saker som testades var att försöka få in en tillbaka knapp på på varje skärm för att öka anvädningbarheten för användarna. Detta beslutet tog slut snabbt för att det fanns redan en tillbaka knapp som fungerade bra. 
+Några olika saker som testades var att försöka få in en tillbaka knapp på på varje skärm för att öka anvädningbarheten för användarna. Detta beslutet tog slut snabbt för att det fanns redan en tillbaka knapp som fungerade bra. Anvädningen av JSON-fil skapades bara för att det inte gick ibörjan med att hämta datan från URL. Men efter att insåg problemet som var att login inte användes i URL så behövdes inte JSON-filen längre. 
 
 
 Kodsnuttar:
